@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add Product</title>
+</head>
+<body>
+<div class="container">
+    <form action="#" th:action="@{/addproduct}" th:object="${newProduct}" method="post">
+        <input type="hidden" th:field="*{p_id}"/>
+        <h1>Add new product</h1>
+        <label for="name"></label>
+        <input type="text" class="form-control" th:field="*{p_name}" id="name" placeholder="Product name"
+               autofocus="autofocus"/>
+        <label for="sku"></label>
+        <input type="text" class="form-control" th:field="*{p_sku}" id="sku" placeholder="SKU"/>
+        <label for="upc"></label>
+        <input type="text" class="form-control" th:field="*{p_upc}" id="upc" placeholder="UPC"/>
+        <label for="price"></label>
+        <input type="number" class="form-control" th:field="*{p_price}" id="price" placeholder="$0.00"/>
+        <label for="discount"></label>
+        <input type="number" class="form-control" th:field="*{p_discount}" id="discount" placeholder="0.0%"/>
+        <label for="stock"></label>
+        <input type="number" class="form-control" th:field="*{p_numInStock}" id="stock" placeholder=""/>
+        <label for="dept"></label>
+        <input type="text" class="form-control" th:field="*{p_department}" id="dept" placeholder="Grocery, Furniture"/>
+        <!--<label for="taxable"></label>-->
+        <!--<input type="radio" class="form-control" th:field="*{isTaxable()}" id="taxable"/>-->
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>

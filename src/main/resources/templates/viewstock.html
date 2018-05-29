@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+<div class="container">
+    <div class="col-lg-10 col-lg-offset-1">
+        <div class="panel panel-default card card-3">
+            <div class="panel-body">
+                <caption> <h4><b th:text="All products"></b></h4></caption>
+                <table class="table table-striped" class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>SKU</th>
+                        <th>UPC</th>
+                        <th>Price</th>
+                        <th>Discount</th>
+                        <th>Department</th>
+                        <th># In Stock</th>
+
+                    </tr>
+                    </thead>
+                    <tbody align="left">
+                    <tr th:each="list: ${allProducts}">
+                        <td th:text="*{list.p_name}"></td>
+                        <td th:text="*{list.p_sku}"></td>
+                        <td th:text="*{list.p_upc}"></td>
+                        <td th:text="*{list.p_price}"></td>
+                        <td th:text="*{list.p_discount}"></td>
+                        <td th:text="*{list.p_department}"></td>
+                        <td th:text="*{list.p_numInStock}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
