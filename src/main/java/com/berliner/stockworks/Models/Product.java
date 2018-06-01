@@ -21,28 +21,28 @@ public class Product
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long p_id;
 
-    @NotEmpty
+//    @NotEmpty
     private String p_name;
 
-    @NotEmpty
+//    @NotEmpty
     private String p_sku;
 
-    @NotEmpty
+//    @NotEmpty
     private String p_upc;
 
-    @NotNull
+//    @NotNull
     private double p_price;
 
-    @NotNull
+//    @NotNull
     private double p_discount;  //Maybe not double?
 
-    @NotEmpty
+//    @NotEmpty
     private String p_source;
 
-    @NotNull
+//    @NotNull
     private int p_numInStock;
 
-    @NotEmpty
+//    @NotEmpty
     private String p_department;
 
     private boolean isTaxable;

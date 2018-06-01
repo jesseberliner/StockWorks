@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title></title>
+    <th:block th:replace="base :: StockWorksHead"/>
+    <title>Welcome to StockWorks!</title>
 </head>
 <body>
+<th:block th:replace="base :: StockWorksNav"></th:block>
+
 <div class="container">
     <div class="col-lg-10 col-lg-offset-1">
-        <div class="panel panel-default card card-3">
-            <div class="panel-body">
-                <caption> <h4><b th:text="All products"></b></h4></caption>
-                <table class="table table-striped" class="table table-hover">
+        <!--<div class="panel panel-default card card-3">-->
+            <div class="panel">
+            <!--<div class="panel-body">-->
+                <caption> <h4><b>All products</b></h4></caption>
+                <!--<table class="table table-striped" class="table table-hover">-->
+                    <table>
                     <thead>
                     <tr>
                         <th>Product Name</th>
@@ -38,7 +42,9 @@
 
             </div>
         </div>
-    </div>
+    <!--</div>-->
 </div>
+<th:block th:replace="base :: StockWorksFoot"></th:block>
+
 </body>
 </html>

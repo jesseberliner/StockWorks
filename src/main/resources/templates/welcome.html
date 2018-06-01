@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
+    <th:block th:replace="/base :: StockWorksHead"/>
     <title>Welcome to StockWorks!</title>
 </head>
 <body>
+<th:block th:replace="/base :: StockWorksNav"></th:block>
 <h1>There is text here</h1>
 <a href="/viewstock">View</a>
-<a href="/addproduct">Add</a>
-<a href="/removeproduct">Remove</a>
+<a href="/addproduct">addproduct</a>
+<th:block th:replace="/base :: StockWorksFoot"></th:block>
+
 </body>
 </html>

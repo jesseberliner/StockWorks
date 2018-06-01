@@ -6,3 +6,8 @@ body {
     padding: 3rem 1.5rem;
     text-align: right;
 }
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+}

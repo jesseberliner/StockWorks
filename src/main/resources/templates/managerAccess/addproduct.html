@@ -1,33 +1,45 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
+    <th:block th:replace="base :: StockWorksHead"/>
     <title>Add Product</title>
 </head>
 <body>
+<th:block th:replace="base :: StockWorksNav"></th:block>
+
 <div class="container">
     <form action="#" th:action="@{/addproduct}" th:object="${newProduct}" method="post">
         <input type="hidden" th:field="*{p_id}"/>
         <h1>Add new product</h1>
-        <label for="name"></label>
+        <label for="name">Name</label>
         <input type="text" class="form-control" th:field="*{p_name}" id="name" placeholder="Product name"
                autofocus="autofocus"/>
-        <label for="sku"></label>
+        <br/>
+        <label for="sku">SKU</label>
         <input type="text" class="form-control" th:field="*{p_sku}" id="sku" placeholder="SKU"/>
-        <label for="upc"></label>
+        <br/>
+        <label for="upc">UPC</label>
         <input type="text" class="form-control" th:field="*{p_upc}" id="upc" placeholder="UPC"/>
-        <label for="price"></label>
-        <input type="number" class="form-control" th:field="*{p_price}" id="price" placeholder="$0.00"/>
-        <label for="discount"></label>
-        <input type="number" class="form-control" th:field="*{p_discount}" id="discount" placeholder="0.0%"/>
-        <label for="stock"></label>
-        <input type="number" class="form-control" th:field="*{p_numInStock}" id="stock" placeholder=""/>
-        <label for="dept"></label>
+        <br/>
+        <label for="price">Price</label>
+        <input type="number" class="form-control" th:field="*{p_price}" id="price" placeholder="$0.00" step="0.01"/>
+        <br/>
+        <label for="discount">Discount percent</label>
+        <input type="number" class="form-control" th:field="*{p_discount}" id="discount" placeholder="0.0%" step="0.01"/>
+        <br/>
+        <label for="stock">Number in stock</label>
+        <input type="number" class="form-control" th:field="*{p_numInStock}" id="stock" placeholder="0"/>
+        <br/>
+        <label for="dept">Department</label>
         <input type="text" class="form-control" th:field="*{p_department}" id="dept" placeholder="Grocery, Furniture"/>
+        <br/>
         <!--<label for="taxable"></label>-->
-        <!--<input type="radio" class="form-control" th:field="*{isTaxable()}" id="taxable"/>-->
+        <!--<input type="checkbox" name="taxable" th:field="*{isTaxable()}" checked="checked" />-->
+        <!--<br/>-->
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
+<th:block th:replace="base :: StockWorksFoot"></th:block>
+
 </body>
 </html>
