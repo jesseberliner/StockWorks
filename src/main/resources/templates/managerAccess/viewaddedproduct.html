@@ -8,29 +8,35 @@
 <th:block th:replace="base :: StockWorksNav"></th:block>
 
 <main role="main" class="container">
-<h4><b>All products</b></h4>
+<h4><b>Added product:</b></h4>
 <table>
     <thead>
     <tr>
         <th>Product Name</th>
+        <th>Image file</th>
+        <th>Description</th>
         <th>SKU</th>
         <th>UPC</th>
         <th>Price</th>
         <th>Discount</th>
-        <th>Department</th>
         <th># In Stock</th>
+        <th>Department</th>
+        <th>Taxable</th>
 
     </tr>
     </thead>
     <tbody align="left">
     <tr th:object="${newProduct}">
         <td th:text="*{p_name}"></td>
+        <td th:text="*{p_imgFile}"></td>
+        <td th:text="*{p_desc}"></td>
         <td th:text="*{p_sku}"></td>
         <td th:text="*{p_upc}"></td>
-        <td th:text="*{p_price}"></td>
-        <td th:text="*{p_discount}"></td>
-        <td th:text="*{p_department}"></td>
+        <td th:text="'$'+*{p_price}"></td>
+        <td th:text="*{p_discount}+'%'"></td>
         <td th:text="*{p_numInStock}"></td>
+        <td th:text="*{p_department}"></td>
+        <td th:text="*{taxable} ? 'Yes' : 'No'"></td>
     </tr>
     </tbody>
 </table>

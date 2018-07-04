@@ -15,6 +15,12 @@
         <input type="text" class="form-control" th:field="*{p_name}" id="name" placeholder="Product name"
                autofocus="autofocus"/>
         <br/>
+        <label for="image">Image</label>
+        <input type="file" class="form-control" th:field="*{p_imgFile}" id="image" placeholder="Image file"/>
+        <br/>
+        <label for="description">Description</label>
+        <input type="text" class="form-control" th:field="*{p_desc}" id="description" placeholder="Description"/>
+        <br/>
         <label for="sku">SKU</label>
         <input type="text" class="form-control" th:field="*{p_sku}" id="sku" placeholder="SKU"/>
         <br/>
@@ -33,10 +39,12 @@
         <label for="dept">Department</label>
         <input type="text" class="form-control" th:field="*{p_department}" id="dept" placeholder="Grocery, Furniture"/>
         <br/>
-        <!--<label for="taxable"></label>-->
-        <!--<input type="checkbox" name="taxable" th:field="*{isTaxable()}" checked="checked" />-->
-        <!--<br/>-->
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <label for="taxable">Taxable</label>
+        <input type="checkbox" class="form-control" th:field="*{taxable}" id="taxable" />
+        <!--<input type="checkbox" class="form-control" th:field="*{isTaxable}" id="taxable" checked="checked" />-->
+        <!--<p>Wifi: <input type="checkbox" th:field="*{hasWifi}"/></p>-->
+        <br/>
+        <button type="submit" class="btn btn-primary">Submit</button><button type="reset" class="btn btn-primary">Reset</button>
     </form>
 </div>
 <th:block th:replace="base :: StockWorksFoot"></th:block>

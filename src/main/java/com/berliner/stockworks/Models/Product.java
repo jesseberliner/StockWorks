@@ -24,6 +24,10 @@ public class Product
 //    @NotEmpty
     private String p_name;
 
+    private String p_imgFile;
+
+    private String p_desc;
+
 //    @NotEmpty
     private String p_sku;
 
@@ -36,16 +40,19 @@ public class Product
 //    @NotNull
     private double p_discount;  //Maybe not double?
 
-//    @NotEmpty
-    private String p_source;
-
 //    @NotNull
     private int p_numInStock;
 
 //    @NotEmpty
     private String p_department;
 
-    private boolean isTaxable;
+    private boolean taxable;
+
+    private boolean deleted;
+
+
+    //Getters and setters
+
 
     public long getP_id()
     {
@@ -65,6 +72,26 @@ public class Product
     public void setP_name(String p_name)
     {
         this.p_name = p_name;
+    }
+
+    public String getP_imgFile()
+    {
+        return p_imgFile;
+    }
+
+    public void setP_imgFile(String p_imgFile)
+    {
+        this.p_imgFile = p_imgFile;
+    }
+
+    public String getP_desc()
+    {
+        return p_desc;
+    }
+
+    public void setP_desc(String p_desc)
+    {
+        this.p_desc = p_desc;
     }
 
     public String getP_sku()
@@ -107,16 +134,6 @@ public class Product
         this.p_discount = p_discount;
     }
 
-    public String getP_source()
-    {
-        return p_source;
-    }
-
-    public void setP_source(String p_source)
-    {
-        this.p_source = p_source;
-    }
-
     public int getP_numInStock()
     {
         return p_numInStock;
@@ -139,11 +156,21 @@ public class Product
 
     public boolean isTaxable()
     {
-        return isTaxable;
+        return taxable;
     }
 
     public void setTaxable(boolean taxable)
     {
-        isTaxable = taxable;
+        this.taxable = taxable;
+    }
+
+    public boolean isDeleted()
+    {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted)
+    {
+        this.deleted = deleted;
     }
 }

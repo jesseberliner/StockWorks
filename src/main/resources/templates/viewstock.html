@@ -18,24 +18,30 @@
                     <thead>
                     <tr>
                         <th>Product Name</th>
+                        <th>Image file</th>
+                        <th>Description</th>
                         <th>SKU</th>
                         <th>UPC</th>
                         <th>Price</th>
                         <th>Discount</th>
-                        <th>Department</th>
                         <th># In Stock</th>
+                        <th>Department</th>
+                        <th>Taxable</th>
 
                     </tr>
                     </thead>
                     <tbody align="left">
                     <tr th:each="list: ${allProducts}">
                         <td th:text="*{list.p_name}"></td>
+                        <td th:text="*{list.p_imgFile}"></td>
+                        <td th:text="*{list.p_desc}"></td>
                         <td th:text="*{list.p_sku}"></td>
                         <td th:text="*{list.p_upc}"></td>
-                        <td th:text="*{list.p_price}"></td>
-                        <td th:text="*{list.p_discount}"></td>
-                        <td th:text="*{list.p_department}"></td>
+                        <td th:text="'$'+*{list.p_price}"></td>
+                        <td th:text="*{list.p_discount}+'%'"></td>
                         <td th:text="*{list.p_numInStock}"></td>
+                        <td th:text="*{list.p_department}"></td>
+                        <td th:text="*{list.taxable} ? 'Yes' : 'No'"></td>
                     </tr>
                     </tbody>
                 </table>
