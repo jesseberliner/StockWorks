@@ -13,8 +13,8 @@
             <div class="panel">
             <!--<div class="panel-body">-->
                 <caption> <h4><b>All products</b></h4></caption>
-                <!--<table class="table table-striped" class="table table-hover">-->
-                    <table>
+                <table class="table table-striped table-bordered">
+                    <!--<table class="table">-->
                     <thead>
                     <tr>
                         <th>Product Name</th>
@@ -42,6 +42,7 @@
                         <td th:text="*{list.p_numInStock}"></td>
                         <td th:text="*{list.p_department}"></td>
                         <td th:text="*{list.taxable} ? 'Yes' : 'No'"></td>
+                        <td><a th:href="@{/update/{id}(id=${list.p_id})}">Modify</a></td>
                     </tr>
                     </tbody>
                 </table>

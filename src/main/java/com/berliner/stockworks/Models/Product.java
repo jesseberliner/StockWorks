@@ -12,7 +12,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Product
@@ -21,33 +23,38 @@ public class Product
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long p_id;
 
-//    @NotEmpty
+    @NotEmpty
     private String p_name;
 
     private String p_imgFile;
 
+    @Size(min=2, max=240)
     private String p_desc;
 
-//    @NotEmpty
+    @NotEmpty
     private String p_sku;
 
-//    @NotEmpty
+    @NotEmpty
     private String p_upc;
 
-//    @NotNull
+    @NotNull
+    @Min(0)
     private double p_price;
 
-//    @NotNull
+    @NotNull
+    @Min(0)
     private double p_discount;  //Maybe not double?
 
-//    @NotNull
+    @NotNull
     private int p_numInStock;
 
-//    @NotEmpty
+    @NotEmpty
     private String p_department;
 
+    @NotNull
     private boolean taxable;
 
+    @NotNull
     private boolean deleted;
 
 

@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MainController
@@ -30,19 +27,28 @@ public class MainController
         model.addAttribute("newProduct", new Product());
         return "managerAccess/addproduct";
     }
+
     @PostMapping("/addproduct")
-    public String addProduct(@ModelAttribute("newProduct")Product product)
-//    public String addProduct(@ModelAttribute("newProduct")Product product, BindingResult result)
+    public String addProduct(@ModelAttribute("newProduct")Product product, BindingResult result)
     {
-//        if(result.hasErrors())
-//        {
-//            return "addproduct";
-//        }
+        if(result.hasErrors())
+        {
+            return "managerAccess/addproduct";
+        }
         productRepo.save(product);
         return "managerAccess/viewaddedproduct";
     }
     //For postMapping/Validation
     // public String submitPerson(@Valid @ModelAttribute("newPerson")PersonUser person, BindingResult result)
+
+    @GetMapping("/update/{p_id}")
+    public String updateProduct(@PathVariable("p_id") long id, Model model)
+    {
+        model.addAttribute("newProduct", productRepo.findOne(id));
+
+        return "managerAccess/addproduct";
+
+    }
 
     @RequestMapping("/viewstock")
     public String viewStock(Model model)
