@@ -8,7 +8,7 @@
 <th:block th:replace="base :: StockWorksNav"></th:block>
 
 <div class="container">
-
+<div class="row col-sm justify-content-center">
     <form action="#" th:action="@{/addproduct}" th:object="${newProduct}" method="post">
         <input type="hidden" th:field="*{p_id}"/>
         <h1>Add new product</h1>
@@ -48,11 +48,11 @@
         <input type="text" class="form-control" th:field="*{p_department}" id="dept" placeholder="Grocery, Furniture"/>
         <span th:if="${#fields.hasErrors('p_department')}" th:errors="*{p_department}"></span>
         <br/>
-        <label for="taxable">Taxable</label>
-        <input type="checkbox" class="form-control" th:field="*{taxable}" id="taxable" />
+        <span><label for="taxable">Taxable </label><input type="checkbox" class="form-control" th:field="*{taxable}" id="taxable" /></span>
         <br/>
-        <button type="submit" class="btn btn-primary">Submit</button><button type="reset" class="btn btn-primary">Reset</button>
+        <button type="submit" class="btn btn-primary">Submit</button>  <button type="reset" class="btn btn-primary">Reset</button>
     </form>
+</div>
 </div>
 <th:block th:replace="base :: StockWorksFoot"></th:block>
 
