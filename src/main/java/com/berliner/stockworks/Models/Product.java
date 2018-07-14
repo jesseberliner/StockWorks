@@ -58,8 +58,12 @@ public class Product
     private boolean deleted;
 
 
-    //Getters and setters
+    public Product()
+    {
+        this.deleted = false;
+    }
 
+    //Getters and setters
 
     public long getP_id()
     {
