@@ -39,10 +39,11 @@
                         <td th:text="*{list.p_upc}"></td>
                         <td th:text="'$'+*{list.p_price}"></td>
                         <td th:text="*{list.p_discount}+'%'"></td>
-                        <td th:text="*{list.p_numInStock}"></td>
+                        <td><a th:text="*{list.p_numInStock}" th:href="@{/addstock/{id}(id=${list.p_id})}"></a></td>
                         <td th:text="*{list.p_department}"></td>
                         <td th:text="*{list.taxable} ? 'Yes' : 'No'"></td>
                         <td><a th:href="@{/update/{id}(id=${list.p_id})}">Modify</a></td>
+                        <td><a th:href="@{/deleteproduct/{id}(id=${list.p_id})}">Delete</a></td>
                     </tr>
                     </tbody>
                 </table>

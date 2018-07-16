@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @Controller
 public class MainController
 {
@@ -29,7 +31,7 @@ public class MainController
     }
 
     @PostMapping("/addproduct")
-    public String addProduct(@ModelAttribute("newProduct")Product product, BindingResult result)
+    public String addProduct(@Valid @ModelAttribute("newProduct")Product product, BindingResult result)
     {
         if(result.hasErrors())
         {
@@ -38,8 +40,6 @@ public class MainController
         productRepo.save(product);
         return "managerAccess/viewaddedproduct";
     }
-    //For postMapping/Validation
-    // public String submitPerson(@Valid @ModelAttribute("newPerson")PersonUser person, BindingResult result)
 
     @GetMapping("/update/{p_id}")
     public String updateProduct(@PathVariable("p_id") long id, Model model)
@@ -50,10 +50,44 @@ public class MainController
 
     }
 
+    @GetMapping("/addstock/{p_id}")
+    public String updateStock(@PathVariable("p_id") long id, Model model)
+    {
+        model.addAttribute("changeProduct", productRepo.findOne(id));
+        return "employeeAccess/addstock";
+
+    }
+//Needs correction if left blank
+    @PostMapping("/addstock")
+    public String updateStock(@ModelAttribute("changeProduct")Product product)
+    {
+
+        Product changed = productRepo.findOne(product.getP_id());
+        changed.setP_numInStock(product.getP_numInStock());
+
+        productRepo.save(changed);
+
+        return "redirect:/viewstock";
+
+    }
+
+    @RequestMapping("/deleteproduct/{p_id}")
+    public String deleteProduct(@PathVariable ("p_id") long id)
+    {
+        Product product = productRepo.findOne(id);
+        product.setDeleted(true);
+        productRepo.save(product);
+
+        return "redirect:/viewstock";
+    }
+
     @RequestMapping("/viewstock")
     public String viewStock(Model model)
     {
-        model.addAttribute("allProducts", productRepo.findAll());
+        model.addAttribute("allProducts", productRepo.findByDeletedIsFalse());
         return "viewstock";
     }
+
+
+
 }
