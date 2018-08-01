@@ -38,9 +38,13 @@
         <td th:text="*{p_numInStock}"></td>
         <td th:text="*{p_department}"></td>
         <td th:text="*{taxable} ? 'Yes' : 'No'"></td>
+        <td><a th:href="@{/update/{id}(id=*{p_id})}">Modify</a></td>
     </tr>
+
     </tbody>
 </table>
+    <a th:href="@{addproduct}">Add another item</a>
+    <a th:href="@{viewstock}">View all items</a>
 </main>
 <th:block th:replace="base :: StockWorksFoot"></th:block>
 

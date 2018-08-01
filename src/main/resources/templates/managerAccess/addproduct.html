@@ -13,27 +13,26 @@
         <input type="hidden" th:field="*{p_id}"/>
         <h1>Add new product</h1>
         <label for="name">Name</label>
-        <input type="text" class="form-control" th:field="*{p_name}" id="name" placeholder="Product name"
-               autofocus="autofocus"/>
+        <input type="text" class="form-control" th:field="*{p_name}" id="name" autofocus="autofocus"/>
         <span th:if="${#fields.hasErrors('p_name')}" th:errors="*{p_name}"></span>
         <br/>
         <label for="image">Image</label>
-        <input type="file" class="form-control" th:field="*{p_imgFile}" id="image" placeholder="Image file"/>
+        <input type="file" class="form-control" th:field="*{p_imgFile}" id="image" />
         <br/>
         <label for="description">Description</label>
-        <input type="text" class="form-control" th:field="*{p_desc}" id="description" placeholder="Description"/>
+        <input type="text" class="form-control" th:field="*{p_desc}" id="description" />
         <span th:if="${#fields.hasErrors('p_desc')}" th:errors="*{p_desc}"></span>
         <br/>
         <label for="sku">SKU</label>
-        <input type="text" class="form-control" th:field="*{p_sku}" id="sku" placeholder="SKU"/>
+        <input type="text" class="form-control" th:field="*{p_sku}" id="sku" />
         <span th:if="${#fields.hasErrors('p_sku')}" th:errors="*{p_sku}"></span>
         <br/>
         <label for="upc">UPC</label>
-        <input type="text" class="form-control" th:field="*{p_upc}" id="upc" placeholder="UPC"/>
+        <input type="text" class="form-control" th:field="*{p_upc}" id="upc" />
         <span th:if="${#fields.hasErrors('p_upc')}" th:errors="*{p_upc}"></span>
         <br/>
         <label for="price">Price</label>
-        <input type="number" class="form-control" th:field="*{p_price}" id="price" placeholder="$0.00" step="0.01"/>
+        <input type="number" class="form-control" th:field="*{p_price}" id="price" step="0.01"/>
         <span th:if="${#fields.hasErrors('p_price')}" th:errors="*{p_price}"></span>
         <br/>
         <label for="discount">Discount percent</label>
@@ -48,7 +47,7 @@
         <input type="text" class="form-control" th:field="*{p_department}" id="dept" placeholder="Grocery, Furniture"/>
         <span th:if="${#fields.hasErrors('p_department')}" th:errors="*{p_department}"></span>
         <br/>
-        <span><label for="taxable">Taxable </label><input type="checkbox" class="form-control" th:field="*{taxable}" id="taxable" /></span>
+        <label for="taxable">Taxable </label><input type="checkbox" class="form-control" th:field="*{taxable}" id="taxable" />
         <br/>
         <button type="submit" class="btn btn-primary">Submit</button>  <button type="reset" class="btn btn-primary">Reset</button>
     </form>
