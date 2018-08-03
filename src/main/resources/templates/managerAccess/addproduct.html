@@ -9,7 +9,7 @@
 
 <div class="container">
 <div class="row col-sm justify-content-center">
-    <form action="#" th:action="@{/addproduct}" th:object="${newProduct}" method="post">
+    <form action="#" th:action="@{/addproduct}" th:object="${newProduct}" method="post" enctype="multipart/form-data">
         <input type="hidden" th:field="*{p_id}"/>
         <h1>Add new product</h1>
         <label for="name">Name</label>
@@ -17,7 +17,7 @@
         <span th:if="${#fields.hasErrors('p_name')}" th:errors="*{p_name}"></span>
         <br/>
         <label for="image">Image</label>
-        <input type="file" class="form-control" th:field="*{p_imgFile}" id="image" />
+        <input type="file" class="form-control" name="file" id="image" />
         <br/>
         <label for="description">Description</label>
         <input type="text" class="form-control" th:field="*{p_desc}" id="description" />

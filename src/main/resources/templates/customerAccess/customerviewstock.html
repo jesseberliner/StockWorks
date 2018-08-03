@@ -14,7 +14,7 @@
             <div class="col-md-4" th:each="prod: ${products}">
 
                 <div class="card mb-4 shadow-sm">
-                    <img class="card-img-top" data-src="" alt="Card image cap"/>
+                    <div th:if="${prod.p_imgFile} != null"><img class="card-img-top" th:src="${prod.p_imgFile}" alt="Card image cap"/></div>
                     <div class="card-body">
                         <h5 class="card-title" th:text="*{prod.p_name}">Item Name</h5>
                         <p class="card-text" th:text="*{prod.p_desc}">Item Description</p>
