@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="base :: StockWorksHead"/>
+    <title>Change stock</title>
+</head>
+<body>
+<th:block th:replace="base :: StockWorksNav"></th:block>
+
+
+<div class="container">
+<H1>PAGE NOT CURRENTLY WORKING-PLEASE CHECK BACK LATER</H1>
+    <div class="row col-sm justify-content-center" >
+        <table class="table table-striped table-bordered" >
+        <!--<form action="#" th:action="@{/addstock/{id}(id=${item.p_id})}" method="post">-->
+            <tr th:each="item: ${allProducts}">
+                <td th:text="*{item.p_name}"></td>
+                <td th:text="*{item.p_sku}"></td>
+                <td th:text="*{item.p_upc}"></td>
+                <td th:text="'$'+*{item.p_price}"></td>
+                <!--<td><input type="number" class="form-control" th:field="*{item.p_numInStock}" id="stock"/></td>-->
+                <td th:text="*{item.p_numInStock}"></td>
+                <td th:text="*{item.p_department}"></td>
+                <!--<td><button type="submit" class="btn btn-primary">Submit</button></td>-->
+
+            </tr>
+        <!--</form>-->
+        </table>
+
+    </div>
+</div>
+
+<th:block th:replace="base :: StockWorksFoot"></th:block>
+
+</body>
+</html>

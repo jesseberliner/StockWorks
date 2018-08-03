@@ -7,6 +7,7 @@
 <body>
 <th:block th:replace="base :: StockWorksNav"></th:block>
 
+
 <div class="container">
     <div class="col-lg-10 col-lg-offset-1">
         <!--<div class="panel panel-default card card-3">-->
@@ -38,12 +39,13 @@
                         <td th:text="*{list.p_desc}"></td>
                         <td th:text="*{list.p_sku}"></td>
                         <td th:text="*{list.p_upc}"></td>
-                        <td th:text="'$'+*{list.p_price}"></td>
+                        <td th:text="'$'+${#numbers.formatDecimal(list.p_price,1,'COMMA',2,'POINT')}"></td>
                         <td th:text="*{list.p_discount}+'%'"></td>
-                        <td th:text="*{list.p_numInStock}"></td>
+                        <td><a th:text="*{list.p_numInStock}" th:href="@{/addstock/{id}(id=${list.p_id})}"></a></td>
                         <td th:text="*{list.p_department}"></td>
                         <td th:text="*{list.taxable} ? 'Yes' : 'No'"></td>
                         <td><a th:href="@{/update/{id}(id=${list.p_id})}">Modify</a></td>
+                        <td><a th:href="@{/deleteproduct/{id}(id=${list.p_id})}">Delete</a></td>
                     </tr>
                     </tbody>
                 </table>

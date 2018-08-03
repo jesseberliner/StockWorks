@@ -7,5 +7,5 @@ import java.util.Set;
 
 public interface ProductRepo extends CrudRepository<Product, Long>
 {
-    Set<Product> findByDeletedIs(boolean value);
+    Set<Product> findByDeletedIs(boolean b);
 }

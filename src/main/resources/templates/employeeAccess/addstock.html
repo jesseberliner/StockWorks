@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Add Stock</title>
+    <th:block th:replace="base :: StockWorksHead"/>
+    <title>Change stock</title>
 </head>
 <body>
+<th:block th:replace="base :: StockWorksNav"></th:block>
+
+<div class="container">
+    <div class="row col-sm justify-content-center">
+        <form action="#" th:action="@{/addstock}" th:object="${changeProduct}" method="post">
+            <input type="hidden" th:field="*{p_id}"/>
+            <h1></h1>
+            <table class="table table-striped table-bordered">
+            <tr th:text="*{p_name}"></tr>
+                <tr>
+                    <td><label for="stock">Number in stock:</label></td>
+                    <td><input type="number" class="form-control" th:field="*{p_numInStock}" id="stock"/></td>
+                    <!--<span th:if="${#fields.hasErrors('p_numInStock')}" th:errors="*{p_numInStock}"></span>-->
+                </tr>
+            </table>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+<th:block th:replace="base :: StockWorksFoot"></th:block>
 
 </body>
 </html>
