@@ -56,30 +56,24 @@ Manager
     }
 
     @PostMapping("/addproduct")
-//    public String addProduct(@Valid @ModelAttribute("newProduct")Product product, @RequestParam("file")MultipartFile file, BindingResult result)
     public String addProduct(@RequestParam("file")MultipartFile file, @Valid @ModelAttribute("newProduct")Product product, BindingResult result)
     {
         if(result.hasErrors())
         {
-            System.out.println("error");
-            product.setP_imgFile("test");
             return "managerAccess/addproduct";
         }
 
-        if(file.isEmpty())
-        {
-            System.out.println("empty");
-            return "redirect:/managerAccess/addproduct";
-        }
+        if(!file.isEmpty()) {
 
-        try {
-            Map uploadResult = cloudc.upload(file.getBytes(), ObjectUtils.asMap("resourcetype", "auto"));
-            product.setP_imgFile(uploadResult.get("url").toString());
-            productRepo.save(product);
-        } catch (IOException e){
-            e.printStackTrace();
-            return "redirect:managerAccess/addproduct";
+            try {
+                Map uploadResult = cloudc.upload(file.getBytes(), ObjectUtils.asMap("resourcetype", "auto"));
+                product.setP_imgFile(uploadResult.get("url").toString());
+            } catch (IOException e) {
+                e.printStackTrace();
+                return "redirect:managerAccess/addproduct";
+            }
         }
+        productRepo.save(product);
 
         return "managerAccess/viewaddedproduct";
     }

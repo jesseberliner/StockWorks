@@ -7,14 +7,14 @@
 <body>
 <th:block th:replace="base :: StockWorksNav"></th:block>
 
-<div class="album py-5 bg-light">
+<!--<div class="album py-5 bg-light">-->
     <div class="container">
 
         <div class="row">
             <div class="col-md-4" th:each="prod: ${products}">
 
                 <div class="card mb-4 shadow-sm">
-                    <div th:if="${prod.p_imgFile} != null"><img class="card-img-top" th:src="${prod.p_imgFile}" alt="Card image cap"/></div>
+                    <img class="card-img-top" th:src="${prod.p_imgFile}" alt="No image available"/>
                     <div class="card-body">
                         <h5 class="card-title" th:text="*{prod.p_name}">Item Name</h5>
                         <p class="card-text" th:text="*{prod.p_desc}">Item Description</p>
@@ -27,7 +27,7 @@
             </div>
         </div>
     </div>
-</div>
+<!--</div>-->
 <th:block th:replace="base :: StockWorksFoot"></th:block>
 
 </body>
